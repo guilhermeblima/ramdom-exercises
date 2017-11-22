@@ -5,10 +5,14 @@ int realizarSomaValoresPrimeiraLetra(string nomeMae, string nomePai, string nome
     return (nomeMae[0]+nomePai[0]+nomeCliente[0])/10;
 }
 
+int calculaRestoProdutoAnoNascimentoCPF(int anoNascimento, int cpf){
+    return (anoNascimento * cpf) % 100; 
+}
+
 int main() {
 	string nomeCliente, nomePai, nomeMae;
 	char genero;
-	int anoNascimento, cpf, limiteBancario, somaValoresPrimeiraLetra;
+	int anoNascimento, cpf, limiteBancario, somaValoresPrimeiraLetra, restoAnoNascimentoCPF;
 	bool isInadimplente;
     
     cout << "Informe o seu nome? " << endl;
@@ -36,5 +40,6 @@ int main() {
     cin >> isInadimplente;
     
     somaValoresPrimeiraLetra = realizarSomaValoresPrimeiraLetra(nomeMae, nomePai, nomeCliente);
+    restoAnoNascimentoCPF = calculaRestoProdutoAnoNascimentoCPF(anoNascimento, cpf);
 	return 0;
 }
