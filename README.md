@@ -1,2 +1,2 @@
-# ramdom-exercises
+# random-exercises
 just some simple programming exercises. 
