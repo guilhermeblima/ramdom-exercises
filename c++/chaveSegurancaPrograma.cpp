@@ -19,7 +19,7 @@ int calculaDigitosLimiteGeneroInadimplencia(char genero, int limite, bool isInad
             segundoDigito = 1;
         }
     }else if(isInadimplente && limite < 10000){
-        primeiroDigito = limite % 1000;
+        primeiroDigito = limite / 1000;
         if(genero == 'M'){ 
             segundoDigito = 2;
         }else{
@@ -41,7 +41,7 @@ int calculaDigitosLimiteGeneroInadimplencia(char genero, int limite, bool isInad
 }
 
 void criarCodigoSeguranca(int valorPrimeiraFuncao, int valorSegundaFuncao, int valorTerceiraFuncao ){
-     cout << "O Código de Segurança gerado foi: " << endl;    
+     cout << "O Código de Segurança gerado foi: " << valorPrimeiraFuncao << valorTerceiraFuncao << valorSegundaFuncao;    
 }
 
 int main() {
@@ -71,14 +71,13 @@ int main() {
     cout << "Informe o seu limite bancario? " << endl;
     cin >> limiteBancario;
     
-    cout << "Informe 0 caso seja inadimplente ou 1 para nao inadimplente " << endl;
+    cout << "Informe 1 caso seja inadimplente ou 0 para não inadimplente " << endl;
     cin >> isInadimplente;
     
     somaValoresPrimeiraLetra = realizarSomaValoresPrimeiraLetra(nomeMae, nomePai, nomeCliente);
-    cout << "funcao 1: " << somaValoresPrimeiraLetra;
     restoAnoNascimentoCPF = calculaRestoProdutoAnoNascimentoCPF(anoNascimento, cpf);
-    cout << "funcao 2: " << restoAnoNascimentoCPF;
     digitosLimiteGeneroInadimplencia = calculaDigitosLimiteGeneroInadimplencia(genero, limiteBancario, isInadimplente);
-    cout << "funcao 3: " << digitosLimiteGeneroInadimplencia;
+    criarCodigoSeguranca(somaValoresPrimeiraLetra,restoAnoNascimentoCPF,digitosLimiteGeneroInadimplencia);
 	return 0;
 }
+
